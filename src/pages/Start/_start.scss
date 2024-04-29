@@ -1,0 +1,7 @@
+@use '../../sass/abstracts/colors' as colors;
+
+.start {
+    width: 100vw;
+    height: 100vh;
+    background-color: colors.$primary;
+}
