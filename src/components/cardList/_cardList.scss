@@ -1,0 +1,26 @@
+@use '../../sass/mixins/mixin' as mix;
+@use '../../sass/abstracts/colors' as colors;
+
+.card-list {
+    @include mix.flexBox($direction: column, $align: center);
+    width: 100%;
+    gap: 0.5rem;
+    background-color: colors.$primary-container;
+
+    h2 {
+        padding-top: 1rem;
+        @include mix.fontSettings($size: 2rem, $weight: 500)
+    }
+
+    .card-container {
+        margin-bottom: 1rem;
+        overflow: auto;
+          
+    }
+    
+    .card-container::-webkit-scrollbar {
+        width: 0; 
+        height: 0; 
+    }
+
+}

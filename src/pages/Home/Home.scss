@@ -1,0 +1,13 @@
+@use '../../sass/mixins/mixin' as mix;
+@use '../../sass/abstracts/colors' as colors;
+
+.home {
+    @include mix.flexBox($direction: column, $align: center);
+    height: auto;
+    gap: 3rem;
+
+    Input {
+        margin-top: 2rem;
+    }
+
+}
