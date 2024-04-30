@@ -3,15 +3,22 @@ import ReactDOM from 'react-dom/client'
 import './sass/main.scss'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ErrorPage from './pages/Errorpage/Errorpage.tsx'
-import Start from './pages/Start/Start.tsx'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Root from './pages/Root/Root.tsx'
+import User from './pages/User/User.tsx'
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Start/>,
-    errorElement: <ErrorPage/>
+    element: <Root/>,
+    errorElement: <ErrorPage/>,
+    children: [
+      {
+        path: '/user',
+        element: <User/>
+      }
+    ]
   }
 ])
 

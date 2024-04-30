@@ -8,9 +8,13 @@
     @include mix.flexBox($direction: row, $justify: space-between, $align: center);
     padding: 2rem;
 
+    a.active {
+        background-color: colors.$primary;
+        border-radius: 10rem;
+    }
+
     h1 {
-        font-style: italic;
-        font-weight: 300;
+        @include mix.fontSettings($style: italic, $size: 3rem);
         padding-top: 1rem;
     }
 }
