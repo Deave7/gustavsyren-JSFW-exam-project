@@ -1,22 +1,32 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './sass/main.scss'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import ErrorPage from './pages/Errorpage/Errorpage.tsx'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Root from './pages/Root/Root.tsx'
 import User from './pages/User/User.tsx'
+import Home from './pages/Home/Home.tsx'
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root/>,
-    errorElement: <ErrorPage/>,
     children: [
       {
+        path: '/',
+        element: <Navigate to="/home" replace />,
+      },
+      {
+        path: '/home',
+        element: <Home/>,
+        errorElement: <ErrorPage/>,
+      },
+      {
         path: '/user',
-        element: <User/>
+        element: <User/>,
+        errorElement: <ErrorPage/>,
       }
     ]
   }
