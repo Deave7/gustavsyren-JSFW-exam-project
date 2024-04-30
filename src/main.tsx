@@ -4,6 +4,7 @@ import './sass/main.scss'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ErrorPage from './pages/Errorpage/Errorpage.tsx'
 import Start from './pages/Start/Start.tsx'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 const router = createBrowserRouter([

@@ -1,7 +1,10 @@
+import Header from "../../components/header/Header";
+
+
 function Start() {
     return ( 
         <div className="start">
-            <h1>asd</h1>
+            <Header navOne={"/start"} imageOne={"src\\assets\\home.svg"} navTwo={"/user"} imageTwo={"src\\assets\\user.svg"} label={"SHELF"}/>
         </div>
      );
 }

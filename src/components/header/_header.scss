@@ -1,0 +1,16 @@
+@use '../../sass/abstracts/colors' as colors;
+@use '../../sass/mixins/mixin' as mix;
+
+.header {
+    height: 8rem;
+    width: 100%;
+    background-color: colors.$primary-container;
+    @include mix.flexBox($direction: row, $justify: space-between, $align: center);
+    padding: 2rem;
+
+    h1 {
+        font-style: italic;
+        font-weight: 300;
+        padding-top: 1rem;
+    }
+}
