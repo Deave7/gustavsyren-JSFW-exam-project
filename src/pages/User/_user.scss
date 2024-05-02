@@ -10,5 +10,22 @@
         margin-top: 2rem;
     }
 
-    
+    .details {
+        @include mix.flexBox($direction: column, $align: center);
+        @include mix.sizeSettings($width: 40rem, $height: 20rem);
+        padding-top: 1rem;
+        background-color: colors.$primary-container;
+
+        h2 {
+            @include mix.fontSettings($size: 2rem, $weight: 500)
+        }
+
+        ul {
+            list-style: none;
+            padding: 1rem;
+            @include mix.fontSettings($size: 1.5rem, $weight: 500)
+        }
+    }
+
+
 }
