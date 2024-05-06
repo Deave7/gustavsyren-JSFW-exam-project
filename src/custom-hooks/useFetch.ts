@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 
 
 
-export default function useFetch(query: string) {
+export default function useFetch(query: string, endpoint: string, options: string) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false);
-    const url = `https://openlibrary.org/search.json?q=${query}&limit=10`
+    const url = `${endpoint}${query}${options}`
     
     useEffect(() => {
         const fetchData = async () => {

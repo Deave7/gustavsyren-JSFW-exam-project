@@ -12,8 +12,8 @@ const Home = () => {
   const [searchValue, setSearchValue] = useState<string>('')
   
   
-  const { data } = useFetch(searchValue)
-  useSeachResult(data!);
+  const { data } = useFetch(searchValue, 'https://openlibrary.org/search.json?q=', '&limit=10' )
+  useSeachResult(data);
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setInputValue(e.target.value);

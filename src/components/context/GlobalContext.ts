@@ -1,19 +1,20 @@
 import { createContext } from "react"
 import { Action } from "../provider/ContextProvider";
 export type Book = {
-    author: string;
-    genre: string;
+    author_name: string[];
+    subject_facet: string[];
     title: string;
+    cover_i: number;
 }
 
 export type globalState = {
-    books: Book[]
+    docs: Book[]
 
 }
 
 
 export const initialGlobalState: globalState = {
-    books: []
+    docs: []
 }
 
 

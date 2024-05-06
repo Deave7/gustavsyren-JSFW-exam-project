@@ -7,7 +7,7 @@ export type Action =
 const globalReducer = (state: globalState, action: Action): globalState => {
     switch(action.type) {
         case 'SAVE_SEARCH':
-            return {...state, books: action.payload}
+            return {...state, docs: action.payload}
         default:
             throw new Error('Wrong action type')
     }

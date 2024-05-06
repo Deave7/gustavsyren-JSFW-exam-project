@@ -1,12 +1,13 @@
 import { useContext, useEffect } from "react"
-import { Book, GlobalContext } from "../components/context/GlobalContext"
+import {  GlobalContext } from "../components/context/GlobalContext"
 
-const useSeachResult = (data: Book[]) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const useSeachResult = (data: any) => {
     const { dispatch } = useContext(GlobalContext);
 
     useEffect(() => {
         if (data) {
-            dispatch({type: 'SAVE_SEARCH', payload: data})
+            dispatch({type: 'SAVE_SEARCH', payload: data.docs})
             console.log(data)
         }
 
