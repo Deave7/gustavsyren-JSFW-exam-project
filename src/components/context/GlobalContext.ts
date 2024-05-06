@@ -1,12 +1,14 @@
 import { createContext } from "react"
-type Book = {
+import { Action } from "../provider/ContextProvider";
+export type Book = {
     author: string;
     genre: string;
     title: string;
 }
 
-type globalState = {
+export type globalState = {
     books: Book[]
+
 }
 
 
@@ -17,6 +19,8 @@ export const initialGlobalState: globalState = {
 
 export const GlobalContext = createContext<{
     state: globalState
+    dispatch: React.Dispatch<Action>
 }>({
-    state: initialGlobalState
+    state: initialGlobalState,
+    dispatch: () => null,
 })

@@ -6,6 +6,16 @@
     height: auto;
     gap: 3rem;
 
+    .input-button-container {
+        @include mix.flexBox();
+        padding-right: 2rem;
+
+        Button {
+            margin-top: 3rem;
+            margin-left: -8rem;
+        }
+    }
+
     Input {
         margin-top: 2rem;
     }

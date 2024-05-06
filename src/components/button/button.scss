@@ -1,7 +1,17 @@
+@use '../../sass/mixins/mixin' as mix;
+@use '../../sass/abstracts/colors' as colors;
+
 .button {
     width: 15rem;
     height: 3rem;
     border-radius: 2rem;
     border: none;
     font-weight: 700;
+
+    &.search {
+        @include mix.sizeSettings($width: 6rem, $height: 3rem);
+        color: #ffffff;
+        background-color: colors.$primary;
+    }
+
 }
