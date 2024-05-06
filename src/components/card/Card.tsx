@@ -11,8 +11,8 @@ const Card: React.FC<CardProps> = ({title, author,coverId}) => {
         <img src={`https://covers.openlibrary.org/b/id/${coverId}-S.jpg`} alt="cover" height={50} />
       </div>
       <div className="info-container">
-        <p>Title: {title}</p>
-        <p>Author: {author}</p>
+        <p><span>Title:</span> {title}</p>
+        <p><span>Author:</span> {author}</p>
       </div>
       <div className="favorite-container">
         <img src="src\assets\heart.svg" alt="heart" />

@@ -11,5 +11,13 @@
     
     .info-container {
         min-width: 20rem;
+        
+        p {
+            padding: 1rem;
+
+            span {
+                font-weight: 700;
+            }
+        }
     }
 }
