@@ -24,15 +24,17 @@
 
             .details-container {
                 background-color: colors.$secondary;
-
-                @include mix.sizeSettings($width: 25rem, $height: 13rem);
+                @include mix.sizeSettings($width: 25rem, $height: 16rem);
                 ul {
-                    @include mix.fontSettings($size: 1.5rem, $weight: 500);
+                    span {
+                        @include mix.fontSettings($size: 1.5rem, $weight: 500);
+                    }
                     list-style: none;
                     padding: 1rem;
                     
                     li {
-                        margin-bottom: 0.5rem;
+                        font-size: 1.3rem;
+                        margin-bottom: 0.8rem;
                     }
                 }
             }

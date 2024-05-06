@@ -1,10 +1,10 @@
 type CardProps = {
   title: string,
-  author: string[],
+  author: string,
   coverId: number,
 }
 
-const Card: React.FC<CardProps> = ({title, author,coverId}) => {
+const Card: React.FC<CardProps> = ({title, author, coverId}) => {
   return (
     <div className="card">
       <div className="cover-container">

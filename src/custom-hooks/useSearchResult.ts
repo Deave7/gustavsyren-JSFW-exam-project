@@ -8,7 +8,6 @@ const useSeachResult = (data: any) => {
     useEffect(() => {
         if (data) {
             dispatch({type: 'SAVE_SEARCH', payload: data.docs})
-            console.log(data)
         }
 
     }, [data, dispatch])

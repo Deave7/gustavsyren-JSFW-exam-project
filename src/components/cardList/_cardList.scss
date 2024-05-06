@@ -15,7 +15,11 @@
     .card-container {
         margin-bottom: 1rem;
         overflow: auto;
-          
+        
+        a {
+            text-decoration: none;
+        }
+
     }
     
     .card-container::-webkit-scrollbar {
