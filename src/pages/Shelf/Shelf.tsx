@@ -47,9 +47,7 @@ const Shelf = () => {
           </div>
         </div>
         <div className="button-container">
-            <img src="src\assets\close.svg"/>
-            <img src="src\assets\checkmark.svg"/>
-            <img src="src\assets\favorite.svg"/>
+            
         </div>
       </div>
     </div>
