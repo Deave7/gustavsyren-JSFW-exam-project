@@ -1,16 +1,52 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { GlobalContext } from "../../components/context/GlobalContext";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../../custom-hooks/useFetch";
+import Button from "../../components/button/Button";
 
 
 
 const Shelf = () => {
-  const { state } = useContext(GlobalContext)
+  const { state, dispatch } = useContext(GlobalContext)
   const { index } = useParams<{index: string}>()
 
   const bookIndex = parseInt(index!, 10)
   const book = state.docs[bookIndex]
+
+  const navigate = useNavigate()
+  const [favoriteToggle, setFavoriteToggle] = useState(false)
+  const [readToggle, setReadToggle] = useState(false)
+
+  const handleClick = () => {
+    navigate('/home')
+  }
+
+  const handleToggleClick = (label: string) => {
+    switch (label) {
+      case "favorite":
+        if (favoriteToggle) {
+          setFavoriteToggle(!favoriteToggle);
+          dispatch({ type: "DELETE_FAVORITE", payload: book });
+          console.log(state.user);
+        } else {
+          setFavoriteToggle(!favoriteToggle);
+          dispatch({ type: "SAVE_FAVORITE", payload: book });
+          console.log(state.user);
+        }
+        break;
+
+      case "read":
+        if (readToggle) {
+          setReadToggle(!readToggle);
+          dispatch({ type: "DELETE_READ", payload: book });
+          console.log(state.user);
+        } else {
+          setReadToggle(!readToggle);
+          dispatch({ type: "SAVE_READ", payload: book });
+          console.log(state.user);
+        }
+    }
+  }
 
 
   const { data } = useFetch( book.key, 'https://openlibrary.org', '.json' )
@@ -47,7 +83,9 @@ const Shelf = () => {
           </div>
         </div>
         <div className="button-container">
-            
+            <Button className={"button toggle"} onClick={handleClick} label="Close" ></Button>
+            <Button className={"button toggle"} onClick={() => handleToggleClick('favorite')} label="Read" toggleAble={true}></Button>
+            <Button className={"button toggle"} onClick={() => handleToggleClick('read')} label="Favorite " toggleAble={true}></Button>
         </div>
       </div>
     </div>

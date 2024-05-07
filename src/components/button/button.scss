@@ -14,4 +14,15 @@
         background-color: colors.$primary;
     }
 
+    &.toggle {
+        width: 10rem;
+        height: 5rem;
+        box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.329);
+    }
+
+    &.toggled {
+        background-color: colors.$primary;
+        color: #ffffff
+    }
+
 }

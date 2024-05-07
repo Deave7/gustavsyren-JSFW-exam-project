@@ -1,13 +1,13 @@
-import { useState } from "react"
+import { useState } from "react";
 
-const useToggle = () => {
-    const [isToggled, setToggle] = useState(false)
+const useToggle = (initialState: boolean): [boolean, () => void] => {
+    const [isToggled, setToggle] = useState(initialState);
 
-    const handleToggle = () => {
-        setToggle(!isToggled)
-    }
-    
-    return [isToggled, handleToggle]
-}
+    const toggle = () => {
+        setToggle(!isToggled);
+    };
+
+    return [isToggled, toggle];
+};
 
 export default useToggle;

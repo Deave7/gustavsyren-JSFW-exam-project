@@ -10,14 +10,23 @@ export type Book = {
     key: string;
 }
 
+export type User = {
+    favoriteBooks: Book[]
+    readBooks: Book[]
+}
+
 export type globalState = {
     docs: Book[]
-
+    user: User
 }
 
 
 export const initialGlobalState: globalState = {
-    docs: []
+    docs: [],
+    user: {
+        favoriteBooks: [],
+        readBooks: []
+    }
 }
 
 
