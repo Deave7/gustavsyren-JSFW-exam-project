@@ -20,6 +20,10 @@
         box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.329);
     }
 
+    &.card-button {
+        width: 7rem;
+    }
+
     &.toggled {
         background-color: colors.$primary;
         color: #ffffff

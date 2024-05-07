@@ -1,10 +1,16 @@
+import Button from "../button/Button";
+
 type CardProps = {
   title: string,
   author: string,
   coverId: number,
 }
-
 const Card: React.FC<CardProps> = ({title, author, coverId}) => {
+
+  const handleClick = () => {
+
+  }
+
   return (
     <div className="card">
       <div className="cover-container">
@@ -15,7 +21,7 @@ const Card: React.FC<CardProps> = ({title, author, coverId}) => {
         <p><span>Author:</span> {author}</p>
       </div>
       <div className="favorite-container">
-        <img src="src\assets\heart.svg" alt="heart" />
+        <Button className={"button card-button"} onClick={handleClick} label="Favorite"></Button>
       </div>
     </div>
   );

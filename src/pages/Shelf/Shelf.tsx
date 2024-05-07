@@ -18,7 +18,7 @@ const Shelf = () => {
   const [readToggle, setReadToggle] = useState(false)
 
   const handleClick = () => {
-    navigate('/home')
+    navigate(-1)
   }
 
   const handleToggleClick = (label: string) => {
@@ -84,8 +84,8 @@ const Shelf = () => {
         </div>
         <div className="button-container">
             <Button className={"button toggle"} onClick={handleClick} label="Close" ></Button>
-            <Button className={"button toggle"} onClick={() => handleToggleClick('favorite')} label="Read" toggleAble={true}></Button>
-            <Button className={"button toggle"} onClick={() => handleToggleClick('read')} label="Favorite " toggleAble={true}></Button>
+            <Button className={"button toggle"} onClick={() => handleToggleClick('read')} label="Read" toggleAble={true}></Button>
+            <Button className={"button toggle"} onClick={() => handleToggleClick('favorite')} label="Favorite " toggleAble={true}></Button>
         </div>
       </div>
     </div>
