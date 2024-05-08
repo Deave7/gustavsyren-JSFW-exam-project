@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <div className="home">
       <div className="input-button-container">
-      <Input input={"text"} value={inputValue} onChange={handleChange} placeholder="Search..."/>
+      <Input input={"text"} value={inputValue} onChange={handleChange} placeholder="Search..." className={"input"}/>
       <Button className={"button search"} onClick={handleClick} label="Submit"></Button>
       </div>
       <div>

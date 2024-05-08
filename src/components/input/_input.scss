@@ -11,4 +11,10 @@
     border: none;
     outline-color: colors.$primary;
     outline-offset: -0.3rem;
+
+    &.modal {
+        @include mix.sizeSettings($height: 1rem, $width: 10rem);
+        @include mix.fontSettings($size: 1rem);
+        padding: 1rem;
+    }
 }

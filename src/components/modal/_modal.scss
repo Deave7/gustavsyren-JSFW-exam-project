@@ -1,0 +1,32 @@
+@use '../../sass/mixins/mixin' as mix;
+@use '../../sass/abstracts/colors' as colors;
+
+.modal {
+    @include mix.flexBox($direction: column, $align: center, $justify: center);
+    height: 100%;
+    gap: 3rem;
+    margin-top: 1rem;
+    
+
+    .container {
+        @include mix.flexBox($direction: column, $align: center, $justify: flex-start);
+        background-color: colors.$primary-container;
+        width: 30rem;
+        height: auto;
+        padding: 1rem;
+        border-radius: 5rem;
+
+        div {
+            @include mix.flexBox($direction: column, $align: center)
+        }
+
+        textarea {
+            margin: 1rem;
+            border-radius: 1rem;
+            border: none;
+            outline-color: colors.$primary;
+            outline-offset: -0.3rem;
+            padding: 1rem
+        }
+    }
+}

@@ -5,16 +5,21 @@ type InputProps = {
     value: string,
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;
     placeholder?: string
+    className: string
+    minValue?: number;
+    maxValue?: number;
 }
 
 
-const Input: React.FC<InputProps> = ({input, value, onChange, placeholder}) => {
+const Input: React.FC<InputProps> = ({input, value, onChange, placeholder, className, minValue, maxValue}) => {
     return (
-        <input className="input"
+        <input className={`${className}`}
         type={input}
         value={value}
         onChange={onChange}
-        placeholder={placeholder}/>
+        placeholder={placeholder}
+        min={minValue}
+        max={maxValue}/>
     )
 }
 
