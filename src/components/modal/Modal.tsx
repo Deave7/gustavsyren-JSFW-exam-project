@@ -2,8 +2,11 @@ import { useState } from "react";
 import Input from "../input/Input";
 import Button from "../button/Button";
 
+type ModalProps = {
+    onClose: () => void;
+}
 
-function Modal() {
+const Modal: React.FC<ModalProps> = ({ onClose }) => {
    const [formData, setFormData] = useState({
     scoreValue: '0',
     numPageValue: '0',
@@ -11,8 +14,8 @@ function Modal() {
    })
 
    const handleClick = () => {
-    const { scoreValue, numPageValue, review } = formData
-    
+    /* const { scoreValue, numPageValue, review } = formData */
+    onClose()
    }
 
    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -30,7 +33,6 @@ function Modal() {
                 <div>Number of Pages: <Input input={"number"} value={formData.numPageValue} onChange={handleChange} className="input modal" minValue={0}></Input></div>
                 <div>Review: <br /><textarea value={formData.review} name="review" rows={10} onChange={handleChange} placeholder="Leave your review here!"></textarea> </div>
                 <div><Button className={"button"} onClick={handleClick} label="Submit"></Button></div>
-
             </div>
         </div>
      );

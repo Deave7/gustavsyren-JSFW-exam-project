@@ -8,7 +8,7 @@ import User from './pages/User/User.tsx'
 import Home from './pages/Home/Home.tsx'
 import Shelf from './pages/Shelf/Shelf.tsx'
 import GlobalProvider from './components/provider/ContextProvider.tsx'
-import Modal from './components/modal/Modal.tsx'
+
 
 
 const router = createBrowserRouter([
@@ -35,11 +35,6 @@ const router = createBrowserRouter([
         element: <Shelf/>,
         errorElement: <ErrorPage/>,
       },
-      {
-        path: '/modal',
-        element: <Modal/>,
-        errorElement: <ErrorPage/>,
-      }
     ]
   }
 ])
