@@ -22,15 +22,14 @@ const CardList: React.FC<CardListProps> = ({ label, height, width }) => {
       <div className="card-container">
         {location.pathname === "/home"
           ? state.docs.map((book, index) => (
-              <Link to={`/shelf/${index}`} key={index}>
+              <Link to={`/shelf/${book._version_}`} key={index}>
                 <Card title={book.title} author={book.author_name[0]} coverId={book.cover_i}/>
               </Link>
             ))
           : location.pathname === "/user" &&
             state.user.favoriteBooks.map((book, index) => {
-              const docsIndex = state.docs.findIndex((doc) => doc.key === book.key)
               return (
-                <Link to={`/shelf/${docsIndex}`} key={index}>
+                <Link to={`/shelf/${book._version_}`} key={index}>
                   <Card title={book.title} author={book.author_name[0]} coverId={book.cover_i}/>
                 </Link>
               );

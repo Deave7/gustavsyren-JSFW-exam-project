@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage/>,
       },
       {
-        path: '/shelf/:index',
+        path: '/shelf/:_version_',
         element: <Shelf/>,
         errorElement: <ErrorPage/>,
       }

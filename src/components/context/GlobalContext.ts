@@ -8,6 +8,7 @@ export type Book = {
     publisher: string;
     first_sentence: string;
     key: string;
+    _version_: number
 }
 
 export type User = {
