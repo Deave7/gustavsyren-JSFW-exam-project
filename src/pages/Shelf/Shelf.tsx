@@ -1,30 +1,27 @@
 import { useContext, useState } from "react";
 import { GlobalContext } from "../../components/context/GlobalContext";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useFetch from "../../custom-hooks/useFetch";
 import Button from "../../components/button/Button";
 import findBook from "../../utils/findBook";
 import isBookRead from "../../utils/isBookRead";
 import isBookFavorite from "../../utils/isBookFavorite";
 import Modal from "../../components/modal/Modal";
+import useVersion from "../../custom-hooks/useVersion";
 
 
 
 const Shelf = () => {
   const { state, dispatch } = useContext(GlobalContext)
   const [modal, setModal] = useState(false)
-  const { _version_ } = useParams<{_version_: string}>()
-  const parsedVersion = parseInt(_version_!, 10)
-  
+  const parsedVersion = useVersion()
   const book = findBook(state, parsedVersion)
-  console.log('Parsed version:', parsedVersion);
   const navigate = useNavigate()
 
   const handleClose = () => {
     setModal(false)
   }
  
-
   const handleClick = () => {
     navigate(-1)
   }

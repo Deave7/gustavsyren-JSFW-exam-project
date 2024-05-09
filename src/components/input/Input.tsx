@@ -8,10 +8,11 @@ type InputProps = {
     className: string
     minValue?: number;
     maxValue?: number;
+    name?: string;
 }
 
 
-const Input: React.FC<InputProps> = ({input, value, onChange, placeholder, className, minValue, maxValue}) => {
+const Input: React.FC<InputProps> = ({input, value, onChange, placeholder, className, minValue, maxValue, name}) => {
     return (
         <input className={`${className}`}
         type={input}
@@ -19,7 +20,8 @@ const Input: React.FC<InputProps> = ({input, value, onChange, placeholder, class
         onChange={onChange}
         placeholder={placeholder}
         min={minValue}
-        max={maxValue}/>
+        max={maxValue}
+        name={name}/>
     )
 }
 

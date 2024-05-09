@@ -14,6 +14,7 @@ export type Book = {
 export type User = {
     favoriteBooks: Book[]
     readBooks: Book[]
+    reviews: Review[]
 }
 
 export type globalState = {
@@ -21,14 +22,22 @@ export type globalState = {
     user: User
 }
 
+export type Review = {
+    scoreValue: string,
+    numPageValue: string,
+    review: string,
+    _version_: number
+}
 
 export const initialGlobalState: globalState = {
     docs: [],
     user: {
         favoriteBooks: [],
-        readBooks: []
+        readBooks: [],
+        reviews: []
     }
 }
+
 
 
 export const GlobalContext = createContext<{

@@ -28,7 +28,8 @@
             border: none;
             outline-color: colors.$primary;
             outline-offset: -0.3rem;
-            padding: 1rem
+            padding: 2rem;
+            overflow: scroll;
         }
     }
 }

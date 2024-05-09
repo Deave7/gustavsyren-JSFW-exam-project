@@ -1,5 +1,5 @@
 import { useReducer } from "react"
-import { Book, GlobalContext, User, globalState, initialGlobalState } from "../context/GlobalContext"
+import { Book, GlobalContext, Review, User, globalState, initialGlobalState } from "../context/GlobalContext"
 
 export type Action = 
 | {type: 'SAVE_SEARCH'; payload: Book[] }
@@ -7,6 +7,7 @@ export type Action =
 | {type: 'SAVE_READ'; payload: Book}
 | {type: 'DELETE_FAVORITE'; payload: Book}
 | {type: 'DELETE_READ'; payload: Book}
+| {type: 'SAVE_REVIEW'; payload: Review}
 
 const globalReducer = (state: globalState, action: Action): globalState => {
     switch(action.type) {
@@ -44,6 +45,15 @@ const globalReducer = (state: globalState, action: Action): globalState => {
                     readBooks: state.user.readBooks.filter((book) => book.title !== action.payload.title )
                 }
             }
+        case 'SAVE_REVIEW':
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    reviews: [...state.user.reviews, action.payload]
+                }
+            }
+
 
         default:
             throw new Error('Wrong action type')
