@@ -1,14 +1,5 @@
 import useToggle from "../../custom-hooks/useToggle"
-
-type ButtonProps = {
-    label?: string;
-    className: string;
-    onClick: () => void;
-    toggleAble?: boolean;
-    checkFavorite?: () => boolean;
-    checkRead?: () => boolean; 
-}
-
+import { ButtonProps } from "../../types/types";
 
 const Button: React.FC<ButtonProps> = ({ label, onClick, className, toggleAble, checkFavorite, checkRead, }) => {
     const [isToggled, toggle] = useToggle(false, checkFavorite, checkRead)

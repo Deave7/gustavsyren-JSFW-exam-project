@@ -1,6 +1,5 @@
 import {  useEffect, useState } from "react";
-
-type CheckFunction = () => boolean;
+import { CheckFunction } from "../types/types";
 
 const useToggle = (initialState: boolean, checkFavorite?: CheckFunction, checkRead?: CheckFunction ): [boolean, () => void] => {
     const [isToggled, setToggle] = useState(initialState);

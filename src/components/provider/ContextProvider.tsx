@@ -1,14 +1,6 @@
 import { useReducer } from "react"
-import { Book, GlobalContext, Review, User, globalState, initialGlobalState } from "../context/GlobalContext"
-
-export type Action = 
-| {type: 'SAVE_SEARCH'; payload: Book[] }
-| {type: 'SAVE_FAVORITE'; payload: Book}
-| {type: 'SAVE_READ'; payload: Book}
-| {type: 'DELETE_FAVORITE'; payload: Book}
-| {type: 'DELETE_READ'; payload: Book}
-| {type: 'SAVE_REVIEW'; payload: Review}
-| {type: 'DELETE_REVIEW'; payload: Book}
+import { GlobalContext, initialGlobalState } from "../context/GlobalContext"
+import { Action, GlobalProviderProps, User, globalState } from "../../types/types";
 
 const globalReducer = (state: globalState, action: Action): globalState => {
     switch(action.type) {
@@ -67,11 +59,6 @@ const globalReducer = (state: globalState, action: Action): globalState => {
         default:
             throw new Error('Wrong action type')
     }
-}
-
-
-type GlobalProviderProps = {
-    children: React.ReactNode
 }
 
 function GlobalProvider( {children}: GlobalProviderProps) {

@@ -1,13 +1,5 @@
 import { NavLink } from "react-router-dom";
-
-type HeaderProps = {
-    navOne: string,
-    imageOne: string,
-    navTwo: string,
-    imageTwo: string,
-    label: string
-}
-
+import { HeaderProps } from "../../types/types";
 
 const Header: React.FC<HeaderProps> = ({ navOne, imageOne,  navTwo, imageTwo, label }) => {
     return ( 

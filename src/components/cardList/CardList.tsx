@@ -2,12 +2,7 @@ import { useContext } from "react";
 import Card from "../card/Card"
 import { GlobalContext } from "../context/GlobalContext";
 import { Link, useLocation } from "react-router-dom";
-
-type CardListProps = {
-    label: string
-    height: string;
-    width: string;
-}
+import { CardListProps } from "../../types/types";
 
 const CardList: React.FC<CardListProps> = ({ label, height, width }) => {
   const { state } = useContext(GlobalContext);

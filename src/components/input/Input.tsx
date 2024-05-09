@@ -1,16 +1,4 @@
-import { ChangeEvent } from "react";
-
-type InputProps = {
-    input: string,
-    value: string,
-    onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-    placeholder?: string
-    className: string
-    minValue?: number;
-    maxValue?: number;
-    name?: string;
-}
-
+import { InputProps } from "../../types/types";
 
 const Input: React.FC<InputProps> = ({input, value, onChange, placeholder, className, minValue, maxValue, name}) => {
     return (

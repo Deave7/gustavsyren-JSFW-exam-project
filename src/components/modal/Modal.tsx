@@ -3,10 +3,9 @@ import Input from "../input/Input";
 import Button from "../button/Button";
 import useVersion from "../../custom-hooks/useVersion";
 import { GlobalContext } from "../context/GlobalContext";
+import { ModalProps } from "../../types/types";
 
-type ModalProps = {
-    onClose: () => void;
-}
+
 
 const Modal: React.FC<ModalProps> = ({ onClose }) => {
     const { dispatch } = useContext(GlobalContext)
