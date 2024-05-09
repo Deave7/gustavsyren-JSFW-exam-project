@@ -1,30 +1,35 @@
-# React + TypeScript + Vite
+# JSFW EXAM PROJECT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+My exam project for the Java Script Frame Work course.
 
-Currently, two official plugins are available:
+The assignment is to make a application where you can search for and retrieve data about books from a API and then present it to the user. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Tech
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+ - [React](https://react.dev/)
+ - [Vite](https://vitejs.dev/)
+ - [Sass](https://sass-lang.com/guide/)
+ - [Axios](https://axios-http.com/docs/intro)
+ - [TypeScript](https://www.typescriptlang.org/)
+ - [ReactRouter](https://reactrouter.com/en/main)
 
-- Configure the top-level `parserOptions` property like this:
+## API
+- [OpenLibrary](https://openlibrary.org/developers/api)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+
+
+## Installation
+
+All you have to do to be able to run the project is to install and then run it with npm:
+
+```bash
+  npm install
+  npm run dev
+
 ```
+    
+## Authors
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- [@deave7](https://www.github.com/deave7)
+
