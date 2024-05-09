@@ -1,23 +1,22 @@
-@use '../../sass/mixins/mixin' as mix;
-@use '../../sass/abstracts/colors' as colors;
+@use "../../sass/mixins/mixin" as mix;
+@use "../../sass/abstracts/colors" as colors;
 
 .home {
-    @include mix.flexBox($direction: column, $align: center);
-    height: auto;
-    gap: 3rem;
+  @include mix.flexBox($direction: column, $align: center);
+  height: auto;
+  gap: 3rem;
 
-    .input-button-container {
-        @include mix.flexBox();
-        padding-right: 2rem;
+  .input-button-container {
+    @include mix.flexBox();
+    padding-right: 2rem;
 
-        Button {
-            margin-top: 3rem;
-            margin-left: -8rem;
-        }
+    Button {
+      margin-top: 3rem;
+      margin-left: -8rem;
     }
+  }
 
-    Input {
-        margin-top: 2rem;
-    }
-
+  Input {
+    margin-top: 2rem;
+  }
 }

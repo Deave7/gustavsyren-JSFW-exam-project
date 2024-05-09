@@ -1,34 +1,33 @@
-@use '../../sass/mixins/mixin' as mix;
-@use '../../sass/abstracts/colors' as colors;
+@use "../../sass/mixins/mixin" as mix;
+@use "../../sass/abstracts/colors" as colors;
 
 .button {
-    width: 15rem;
-    height: 3rem;
-    border-radius: 2rem;
-    border: none;
-    font-weight: 700;
+  width: 15rem;
+  height: 3rem;
+  border-radius: 2rem;
+  border: none;
+  font-weight: 700;
 
-    &.search {
-        @include mix.sizeSettings($width: 6rem, $height: 3rem);
-        color: #ffffff;
-        background-color: colors.$primary;
-    }
+  &.search {
+    @include mix.sizeSettings($width: 6rem, $height: 3rem);
+    color: #ffffff;
+    background-color: colors.$primary;
+  }
 
-    &.toggle {
-        width: 10rem;
-        height: 5rem;
-        box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.329);
-    }
+  &.toggle {
+    width: 10rem;
+    height: 5rem;
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.329);
+  }
 
-    &.user-b {
-        @include mix.sizeSettings($width: 35rem, $height: 3rem);
-        background-color: colors.$primary;
-        color: #ffffff
-    }
+  &.user-b {
+    @include mix.sizeSettings($width: 35rem, $height: 3rem);
+    background-color: colors.$primary;
+    color: #ffffff;
+  }
 
-    &.toggled {
-        background-color: colors.$primary;
-        color: #ffffff
-    }
-
+  &.toggled {
+    background-color: colors.$primary;
+    color: #ffffff;
+  }
 }

@@ -1,10 +1,10 @@
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
 
 const useVersion = (): number => {
-    const { _version_ } = useParams<{_version_: string}>()
-    const parsedVersion = parseInt(_version_!, 10)
+  const { _version_ } = useParams<{ _version_: string }>();
+  const parsedVersion = parseInt(_version_!, 10);
 
-    return parsedVersion;
-}
+  return parsedVersion;
+};
 
 export default useVersion;

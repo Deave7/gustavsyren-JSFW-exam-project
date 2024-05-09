@@ -1,29 +1,26 @@
-@use '../../sass/mixins/mixin' as mix;
-@use '../../sass/abstracts/colors' as colors;
+@use "../../sass/mixins/mixin" as mix;
+@use "../../sass/abstracts/colors" as colors;
 
 .card {
-    @include mix.flexBox($align: center, $justify: center);
-    @include mix.sizeSettings($width: 36rem, $height: 10rem);
-    @include mix.fontSettings($size: 1.3rem, $weight: 500);
-    background-color: #ffffff;
-    gap: 2rem;
-    margin-bottom: 1rem;
-    color: black;
-    
-    
-    .info-container {
-        min-width: 20rem;
-        max-width: 20rem;
-        
-            p {
-                padding: 1rem;
-                text-decoration: none;
-    
-                span {
-                    font-weight: 700;
-                }
-            }
-       
-        
+  @include mix.flexBox($align: center, $justify: center);
+  @include mix.sizeSettings($width: 36rem, $height: 10rem);
+  @include mix.fontSettings($size: 1.3rem, $weight: 500);
+  background-color: #ffffff;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  color: black;
+
+  .info-container {
+    min-width: 20rem;
+    max-width: 20rem;
+
+    p {
+      padding: 1rem;
+      text-decoration: none;
+
+      span {
+        font-weight: 700;
+      }
     }
+  }
 }

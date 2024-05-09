@@ -1,7 +1,7 @@
-@use '../../sass/abstracts/colors' as colors;
+@use "../../sass/abstracts/colors" as colors;
 
 .root {
-    width: 100vw;
-    height: 100vh;
-    background-color: colors.$primary;
+  width: 100vw;
+  height: 100vh;
+  background-color: colors.$primary;
 }

@@ -1,55 +1,51 @@
-@use '../../sass/mixins/mixin' as mix;
-@use '../../sass/abstracts/colors' as colors;
+@use "../../sass/mixins/mixin" as mix;
+@use "../../sass/abstracts/colors" as colors;
 
 .user {
+  @include mix.flexBox($direction: column, $align: center);
+  height: auto;
+  gap: 1rem;
+  margin-top: 2rem;
+
+  h2 {
+    @include mix.fontSettings($size: 2rem, $weight: 500);
+  }
+
+  .details {
     @include mix.flexBox($direction: column, $align: center);
-    height: auto;
+    @include mix.sizeSettings($width: 40rem, $height: 25rem);
+    padding-top: 1rem;
+    background-color: colors.$primary-container;
     gap: 1rem;
-    margin-top: 2rem;
 
-    h2 {
-        @include mix.fontSettings($size: 2rem, $weight: 500)
-    }
-    
-    .details {
-        @include mix.flexBox($direction: column, $align: center);
-        @include mix.sizeSettings($width: 40rem, $height: 25rem);
-        padding-top: 1rem;
-        background-color: colors.$primary-container;
-        gap: 1rem;
+    .list-container {
+      @include mix.flexBox($direction: column, $align: center);
+      width: 35rem;
+      background-color: colors.$secondary;
+      color: #ffffff;
+      padding: 1rem;
 
-        .list-container {
-            @include mix.flexBox($direction: column, $align: center);
-            width: 35rem;
-            background-color: colors.$secondary;
-            color: #ffffff;
-            padding: 1rem;
-            
-            ul {
-                list-style: none;
-                padding: 1rem;
-                @include mix.fontSettings($size: 1.5rem, $weight: 500);
-    
-    
-                li {
-                    @include mix.fontSettings($size: 2rem, $weight: 300);
-                    text-align: center;
-                    span {
-                        @include mix.fontSettings($size: 2rem, $weight: 500);
-                    }
-                }
-            }
+      ul {
+        list-style: none;
+        padding: 1rem;
+        @include mix.fontSettings($size: 1.5rem, $weight: 500);
+
+        li {
+          @include mix.fontSettings($size: 2rem, $weight: 300);
+          text-align: center;
+          span {
+            @include mix.fontSettings($size: 2rem, $weight: 500);
+          }
         }
-
+      }
     }
+  }
 
-    .button-container {
-        @include mix.flexBox($direction: column, $align: center, $justify: center);
-        @include mix.sizeSettings($width: 40rem, $height: 5rem);
-        background-color: colors.$primary-container;
-        padding: 0.5rem;
-        gap: 2rem
-    }
-
-
+  .button-container {
+    @include mix.flexBox($direction: column, $align: center, $justify: center);
+    @include mix.sizeSettings($width: 40rem, $height: 5rem);
+    background-color: colors.$primary-container;
+    padding: 0.5rem;
+    gap: 2rem;
+  }
 }
