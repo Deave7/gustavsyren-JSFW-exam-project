@@ -1,6 +1,5 @@
 import { createContext } from "react"
-import { Action } from "../provider/ContextProvider";
-import { globalState } from "../../types/types";
+import { Action, globalState } from "../../types/types";
 
 export const initialGlobalState: globalState = {
     docs: [],
