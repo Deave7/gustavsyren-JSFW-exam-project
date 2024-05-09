@@ -39,6 +39,7 @@ const Shelf = () => {
       case "read":
         if (isBookRead(state, book!)) {
           dispatch({ type: "DELETE_READ", payload: book! });
+          dispatch({ type: 'DELETE_REVIEW', payload: book!})
         } else {
           dispatch({ type: "SAVE_READ", payload: book! });
           setModal(true)

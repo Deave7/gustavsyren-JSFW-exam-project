@@ -8,6 +8,7 @@ export type Action =
 | {type: 'DELETE_FAVORITE'; payload: Book}
 | {type: 'DELETE_READ'; payload: Book}
 | {type: 'SAVE_REVIEW'; payload: Review}
+| {type: 'DELETE_REVIEW'; payload: Book}
 
 const globalReducer = (state: globalState, action: Action): globalState => {
     switch(action.type) {
@@ -51,6 +52,14 @@ const globalReducer = (state: globalState, action: Action): globalState => {
                 user: {
                     ...state.user,
                     reviews: [...state.user.reviews, action.payload]
+                }
+            }
+        case 'DELETE_REVIEW': 
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    reviews: state.user.reviews.filter((review) => review._version_ !== action.payload._version_)
                 }
             }
 

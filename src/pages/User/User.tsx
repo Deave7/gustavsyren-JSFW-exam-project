@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "../../components/button/Button";
 import CardList from "../../components/cardList/CardList";
+import { GlobalContext } from "../../components/context/GlobalContext";
 
 const User = () => {
+    const { state } = useContext(GlobalContext)
   const [tab, setTab] = useState<"favorites" | "read">("favorites");
 
   const handleFavoriteClick = () => {
@@ -13,15 +15,23 @@ const User = () => {
     setTab("read");
   };
 
+  const totalPagesRead = state.user.reviews.reduce((total, review) => {
+    return total + parseInt(review.numPageValue,)
+  }, 0)
+
   return (
     <div className="user">
       <div className="details">
-        <h2>User statistics:</h2>
-        <ul>
-          <li>Books read:</li>
-          <li>Number of favorites:</li>
-          <li>Favorite genre:</li>
-        </ul>
+        <div>
+            <h2>User statistics:</h2>
+        </div>
+        <div className="list-container">
+            <ul>
+            <li><span>Books read:</span> <br /> {state.user.readBooks.length}</li>
+            <li><span>Number of favorites:</span> <br /> {state.user.favoriteBooks.length}</li>
+            <li><span>Pages read:</span> <br /> {totalPagesRead}</li>
+         </ul>
+        </div>
       </div>
       <div className="button-container">
         <h2>Toggle Category</h2>
