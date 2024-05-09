@@ -20,20 +20,21 @@ const CardList: React.FC<CardListProps> = ({ label, height, width }) => {
       style={{ height: `${height}`, width: `${width}` }}>
       <h2>{label}</h2>
       <div className="card-container">
-        {location.pathname === "/home"
-          ? state.docs.map((book, index) => (
-              <Link to={`/shelf/${book._version_}`} key={index}>
-                <Card title={book.title} author={book.author_name[0]} coverId={book.cover_i}/>
-              </Link>
-            ))
-          : location.pathname === "/user" &&
-            state.user.favoriteBooks.map((book, index) => {
-              return (
-                <Link to={`/shelf/${book._version_}`} key={index}>
-                  <Card title={book.title} author={book.author_name[0]} coverId={book.cover_i}/>
-                </Link>
-              );
-            })}
+        {location.pathname === "/home" && state.docs.map((book, index) => (
+          <Link to={`/shelf/${book._version_}`} key={index}>
+            <Card title={book.title} author={book.author_name[0]} coverId={book.cover_i}/>
+          </Link>
+        ))}
+        {location.pathname === "/user" && label === "Favorites" && state.user.favoriteBooks.map((book, index) => (
+          <Link to={`/shelf/${book._version_}`} key={index}>
+            <Card title={book.title} author={book.author_name[0]} coverId={book.cover_i}/>
+          </Link>
+        ))}
+        {location.pathname === "/user" && label === "Read" && state.user.readBooks.map((book, index) => (
+          <Link to={`/shelf/${book._version_}`} key={index}>
+            <Card title={book.title} author={book.author_name[0]} coverId={book.cover_i}/>
+          </Link>
+        ))}
       </div>
     </div>
   );
