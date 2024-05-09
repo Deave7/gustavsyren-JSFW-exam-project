@@ -46,7 +46,7 @@ const Shelf = () => {
   };
 
   const { data } = useFetch(book!.key, "https://openlibrary.org", ".json");
-  console.log(data);
+
   const bookData = data as unknown as {
     subjects: string[];
     description: string | { type: string; value: string };

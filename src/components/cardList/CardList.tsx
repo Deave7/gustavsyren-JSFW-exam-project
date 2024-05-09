@@ -7,7 +7,6 @@ import { CardListProps } from "../../types/types";
 const CardList: React.FC<CardListProps> = ({ label, height, width }) => {
   const { state } = useContext(GlobalContext);
   const location = useLocation();
-  console.log(state);
 
   return (
     <div
