@@ -34,18 +34,17 @@ const User = () => {
         </div>
       </div>
       <div className="button-container">
-        <h2>Toggle Category</h2>
         {tab === "read" ? (
           <Button
             className={"button user-b"}
             onClick={() => handleFavoriteClick()}
-            label="Favorite Books"
+            label="Toggle Category"
           ></Button>
         ) : (
           <Button
             className={"button user-b"}
             onClick={() => handleReadClick()}
-            label="Read Books"
+            label="Toggle Category"
           ></Button>
         )}
       </div>

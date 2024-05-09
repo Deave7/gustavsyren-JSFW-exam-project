@@ -13,13 +13,18 @@
     
     .details {
         @include mix.flexBox($direction: column, $align: center);
-        @include mix.sizeSettings($width: 40rem, $height: 20rem);
+        @include mix.sizeSettings($width: 40rem, $height: 25rem);
         padding-top: 1rem;
         background-color: colors.$primary-container;
+        gap: 1rem;
 
         .list-container {
             @include mix.flexBox($direction: column, $align: center);
-            width: 100%;
+            width: 35rem;
+            background-color: colors.$secondary;
+            color: #ffffff;
+            padding: 1rem;
+            
             ul {
                 list-style: none;
                 padding: 1rem;
@@ -40,7 +45,7 @@
 
     .button-container {
         @include mix.flexBox($direction: column, $align: center, $justify: center);
-        @include mix.sizeSettings($width: 40rem, $height: 10rem);
+        @include mix.sizeSettings($width: 40rem, $height: 5rem);
         background-color: colors.$primary-container;
         padding: 0.5rem;
         gap: 2rem
