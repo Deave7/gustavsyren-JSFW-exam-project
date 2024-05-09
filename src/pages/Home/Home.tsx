@@ -3,17 +3,14 @@ import Input from "../../components/input/Input";
 import CardList from "../../components/cardList/CardList";
 import useFetch from "../../custom-hooks/useFetch";
 import Button from "../../components/button/Button";
-
 import useSeachResult from "../../custom-hooks/useSearchResult";
 
 const Home = () => {
-  
   const [inputValue, setInputValue] = useState<string>('');
   const [searchValue, setSearchValue] = useState<string>('')
-  
-  
+  const [submitted, setSubmitted] = useState<boolean>(false);
   const { data } = useFetch(searchValue, 'https://openlibrary.org/search.json?q=', '&limit=10' )
-  useSeachResult(data);
+  useSeachResult(submitted ? data : null);
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setInputValue(e.target.value);
@@ -21,9 +18,8 @@ const Home = () => {
 
   const handleClick = () => {
     setSearchValue(`${inputValue}`)
+    setSubmitted(true);
   }
-  
-  
   
   return (
     <div className="home">
