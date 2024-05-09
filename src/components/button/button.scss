@@ -20,8 +20,10 @@
         box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.329);
     }
 
-    &.card-button {
-        width: 7rem;
+    &.user-b {
+        @include mix.sizeSettings($width: 35rem, $height: 3rem);
+        background-color: colors.$primary;
+        color: #ffffff
     }
 
     &.toggled {

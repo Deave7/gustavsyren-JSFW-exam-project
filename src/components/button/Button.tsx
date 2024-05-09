@@ -10,7 +10,7 @@ type ButtonProps = {
 }
 
 
-const Button: React.FC<ButtonProps> = ({ label, onClick, className, toggleAble, checkFavorite, checkRead }) => {
+const Button: React.FC<ButtonProps> = ({ label, onClick, className, toggleAble, checkFavorite, checkRead, }) => {
     const [isToggled, toggle] = useToggle(false, checkFavorite, checkRead)
     
     const handleClick = () => {
