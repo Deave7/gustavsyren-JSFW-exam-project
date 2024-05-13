@@ -28,6 +28,8 @@ All you have to do to be able to run the project is to install and then run it w
   npm run dev
 
 ```
+
+The design was made for iPhone 14 pro Max
     
 ## Authors
 
