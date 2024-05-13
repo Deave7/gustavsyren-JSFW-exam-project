@@ -1,13 +1,15 @@
 import { Link, useRouteError } from "react-router-dom";
 import Button from "../../components/button/Button";
+import { useContext } from "react";
+import { GlobalContext } from "../../components/context/GlobalContext";
 
 export default function ErrorPage() {
   const error = useRouteError();
   console.error(error);
-
+  const { dispatch } = useContext(GlobalContext)
 
   const onClick = () => {
-    
+    dispatch({type: 'RESET'})
   }
 
   return (
