@@ -9,7 +9,7 @@ const Home = () => {
   const [inputValue, setInputValue] = useState<string>("");
   const [searchValue, setSearchValue] = useState<string>("");
   const [submitted, setSubmitted] = useState<boolean>(false);
-  const { data } = useFetch(
+  const { data, loading } = useFetch(
     searchValue,
     "https://openlibrary.org/search.json?q=",
     "&limit=10"
@@ -42,7 +42,7 @@ const Home = () => {
         ></Button>
       </div>
       <div>
-        <CardList label={"Search Results:"} height={"70rem"} width={"40rem"} />
+        <CardList label={"Search Results:"} height={"70rem"} width={"40rem"} loading={loading}/>
       </div>
     </div>
   );

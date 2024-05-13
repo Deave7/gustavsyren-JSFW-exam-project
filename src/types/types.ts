@@ -19,6 +19,7 @@ export type CardListProps = {
   label: string;
   height: string;
   width: string;
+  loading?: boolean
 };
 
 export type Book = {

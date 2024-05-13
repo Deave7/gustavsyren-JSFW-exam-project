@@ -12,6 +12,21 @@
     @include mix.fontSettings($size: 2rem, $weight: 500);
   }
 
+  .loader { 
+    margin-top: 22rem;
+    width: 100px; 
+    height: 100px; 
+    animation: rotate 1s linear infinite;
+  
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
   .card-container {
     margin-bottom: 1rem;
     overflow: auto;

@@ -3,8 +3,9 @@ import Card from "../card/Card";
 import { GlobalContext } from "../context/GlobalContext";
 import { Link, useLocation } from "react-router-dom";
 import { CardListProps } from "../../types/types";
+import { LoaderCircle } from 'lucide-react';
 
-const CardList: React.FC<CardListProps> = ({ label, height, width }) => {
+const CardList: React.FC<CardListProps> = ({ label, height, width, loading }) => {
   const { state } = useContext(GlobalContext);
   const location = useLocation();
 
@@ -14,7 +15,7 @@ const CardList: React.FC<CardListProps> = ({ label, height, width }) => {
       style={{ height: `${height}`, width: `${width}` }}
     >
       <h2>{label}</h2>
-      <div className="card-container">
+      {loading ? <LoaderCircle className="loader"/> : <div className="card-container">
         {location.pathname === "/home" &&
           state.docs.map((book, index) => (
             <Link to={`/shelf/${book._version_}`} key={index}>
@@ -47,7 +48,7 @@ const CardList: React.FC<CardListProps> = ({ label, height, width }) => {
               />
             </Link>
           ))}
-      </div>
+      </div>}
     </div>
   );
 };
