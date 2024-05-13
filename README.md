@@ -13,6 +13,7 @@ The assignment is to make a application where you can search for and retrieve da
  - [Axios](https://axios-http.com/docs/intro)
  - [TypeScript](https://www.typescriptlang.org/)
  - [ReactRouter](https://reactrouter.com/en/main)
+ - [Lucide](https://lucide.dev/)
 
 ## API
 - [OpenLibrary](https://openlibrary.org/developers/api)
