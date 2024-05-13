@@ -13,6 +13,7 @@
       $align: center,
       $justify: flex-start
     );
+
     background-color: colors.$primary-container;
     width: 30rem;
     height: auto;
@@ -23,6 +24,12 @@
       @include mix.flexBox($direction: column, $align: center);
       @include mix.fontSettings($size: 1.5rem, $weight: 500);
       color: #000000;
+
+      .input-error {
+        @include mix.fontSettings($size: 1rem, $weight: 700);
+        color: red;
+        margin-bottom: 1rem;
+      }
     }
 
     textarea {
