@@ -80,7 +80,8 @@ export type Action =
   | { type: "DELETE_FAVORITE"; payload: Book }
   | { type: "DELETE_READ"; payload: Book }
   | { type: "SAVE_REVIEW"; payload: Review }
-  | { type: "DELETE_REVIEW"; payload: Book };
+  | { type: "DELETE_REVIEW"; payload: Book }
+  | { type: "RESET"; }
 
 export type GlobalProviderProps = {
   children: React.ReactNode;

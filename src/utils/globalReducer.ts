@@ -59,6 +59,16 @@ const globalReducer = (state: globalState, action: Action): globalState => {
         },
       };
 
+    case "RESET":
+      return {
+        docs: [],
+        user: {
+          favoriteBooks: [],
+          readBooks: [],
+          reviews: [],
+        },
+      };
+
     default:
       throw new Error("Wrong action type");
   }
