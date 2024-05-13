@@ -29,7 +29,7 @@ All you have to do to be able to run the project is to install and then run it w
 
 ```
 
-The design was made for iPhone 13 pro Max
+The design was made for iPhone 14 pro Max
     
 ## Authors
 
