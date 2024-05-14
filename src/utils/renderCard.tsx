@@ -21,7 +21,7 @@ function renderCard(item: Book | Author, index: number) {
                 <Card 
                     itemName={author.name} 
                     authorOrTopWork={author.top_work} 
-                    pictureId={author.key}></Card>
+                    pictureId={undefined}></Card>
             </Link>
         )
     }
