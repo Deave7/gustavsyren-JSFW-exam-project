@@ -12,7 +12,7 @@ export type ButtonProps = {
 export type CardProps = {
   itemName: string;
   authorOrTopWork: string;
-  pictureId: number | string
+  pictureId: number | undefined
 };
 
 export type CardListProps = {
