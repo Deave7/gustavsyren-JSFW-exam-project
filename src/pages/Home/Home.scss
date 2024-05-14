@@ -4,19 +4,25 @@
 .home {
   @include mix.flexBox($direction: column, $align: center);
   height: auto;
-  gap: 3rem;
+  gap: 1rem;
 
   .input-button-container {
     @include mix.flexBox();
     padding-right: 2rem;
 
     Button {
-      margin-top: 3rem;
+      margin-top: 2rem;
       margin-left: -8rem;
     }
   }
 
+  .category-button-container {
+    @include mix.flexBox($direction: column, $align: center, $justify: center);
+    @include mix.sizeSettings($width: 40rem, $height: 5rem);
+    background-color: colors.$primary-container;
+  }
+
   Input {
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 }

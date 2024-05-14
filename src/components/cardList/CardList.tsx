@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import Card from "../card/Card";
 import { GlobalContext } from "../context/GlobalContext";
-import { Link, useLocation } from "react-router-dom";
+import {  useLocation } from "react-router-dom";
 import { CardListProps } from "../../types/types";
 import { LoaderCircle } from 'lucide-react';
+import renderCard from "../../utils/renderCard";
 
 const CardList: React.FC<CardListProps> = ({ label, height, width, loading }) => {
   const { state } = useContext(GlobalContext);
@@ -17,36 +17,18 @@ const CardList: React.FC<CardListProps> = ({ label, height, width, loading }) =>
       <h2>{label}</h2>
       {loading ? <LoaderCircle className="loader"/> : <div className="card-container">
         {location.pathname === "/home" &&
-          state.docs.map((book, index) => (
-            <Link to={`/shelf/${book._version_}`} key={index}>
-              <Card
-                title={book.title}
-                author={book.author_name[0]}
-                coverId={book.cover_i}
-              />
-            </Link>
+          state.docs.map((item, index) => (
+            renderCard(item, index)
           ))}
         {location.pathname === "/user" &&
           label === "Favorites" &&
           state.user.favoriteBooks.map((book, index) => (
-            <Link to={`/shelf/${book._version_}`} key={index}>
-              <Card
-                title={book.title}
-                author={book.author_name[0]}
-                coverId={book.cover_i}
-              />
-            </Link>
+            renderCard(book, index)
           ))}
         {location.pathname === "/user" &&
           label === "Read" &&
           state.user.readBooks.map((book, index) => (
-            <Link to={`/shelf/${book._version_}`} key={index}>
-              <Card
-                title={book.title}
-                author={book.author_name[0]}
-                coverId={book.cover_i}
-              />
-            </Link>
+            renderCard(book, index)
           ))}
       </div>}
     </div>

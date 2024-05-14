@@ -10,9 +10,9 @@ export type ButtonProps = {
 };
 
 export type CardProps = {
-  title: string;
-  author: string;
-  coverId: number;
+  itemName: string;
+  authorOrTopWork: string;
+  pictureId: number | string
 };
 
 export type CardListProps = {
@@ -32,6 +32,13 @@ export type Book = {
   key: string;
   _version_: number;
 };
+
+export type Author = {
+  name: string
+  top_work: string
+  key: string
+  _version: number;
+}
 
 export type User = {
   favoriteBooks: Book[];

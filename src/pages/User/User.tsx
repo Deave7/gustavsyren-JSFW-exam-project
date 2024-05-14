@@ -1,20 +1,13 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Button from "../../components/button/Button";
 import CardList from "../../components/cardList/CardList";
 import { GlobalContext } from "../../components/context/GlobalContext";
+import useCategoryToggle from "../../custom-hooks/useCategoryToggle";
 
 const User = () => {
   const { state } = useContext(GlobalContext);
-  const [tab, setTab] = useState<"favorites" | "read">("favorites");
-
-  const handleFavoriteClick = () => {
-    setTab("favorites");
-  };
-
-  const handleReadClick = () => {
-    setTab("read");
-  };
-
+  const { category, handleCategoryOneClick, handleCategoryTwoClick } = useCategoryToggle('favorites', 'read')
+ 
   const totalPagesRead = state.user.reviews.reduce((total, review) => {
     return total + parseInt(review.numPageValue);
   }, 0);
@@ -41,22 +34,22 @@ const User = () => {
         </div>
       </div>
       <div className="button-container">
-        {tab === "read" ? (
+        {category === "read" ? (
           <Button
             className={"button user-b"}
-            onClick={() => handleFavoriteClick()}
+            onClick={handleCategoryTwoClick}
             label="Toggle Category"
           ></Button>
         ) : (
           <Button
             className={"button user-b"}
-            onClick={() => handleReadClick()}
+            onClick={handleCategoryOneClick}
             label="Toggle Category"
           ></Button>
         )}
       </div>
       <CardList
-        label={tab === "favorites" ? "Favorites" : "Read"}
+        label={category === "favorites" ? "Favorites" : "Read"}
         height={"50rem"}
         width={"40rem"}
       />
