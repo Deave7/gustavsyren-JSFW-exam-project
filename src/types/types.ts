@@ -44,6 +44,7 @@ export type User = {
   favoriteBooks: Book[];
   readBooks: Book[];
   reviews: Review[];
+  favoriteAuthors: Author[];
 };
 
 export type globalState = {
@@ -81,14 +82,12 @@ export type ModalProps = {
   onClose: () => void;
 };
 
-export type BookType = 'favoriteBooks' | 'readBooks';
+export type ItemType = 'favoriteBooks' | 'readBooks' | 'reviews' | 'favoriteAuthors';
 
 export type Action =
   | { type: "SAVE_SEARCH"; payload: Book[] | Author[] }
-  | { type: "SAVE_BOOK"; payload: { book: Book, type: BookType }}
-  | { type: "DELETE_BOOK"; payload: { book: Book, type: BookType }}
-  | { type: "SAVE_REVIEW"; payload: Review }
-  | { type: "DELETE_REVIEW"; payload: Book }
+  | { type: "SAVE_ITEM"; payload: { item: Book | Author | Review, type: ItemType }}
+  | { type: "DELETE_ITEM"; payload: { item: Book | Author | Review, type: ItemType }}
   | { type: "RESET"; }
 
 export type GlobalProviderProps = {

@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalContext";
 import { Author, Book } from "../../types/types";
 import Button from "../button/Button";
-import isBookFavorite from "../../utils/isBookFavorite";
 import isBookRead from "../../utils/isBookRead";
+import isItemFavorite from "../../utils/isItemFavorite";
 
 type RenderToggleButtonsProps = {
   item: Book | Author;
@@ -17,31 +17,40 @@ const RenderToggleButtons: React.FC<RenderToggleButtonsProps> = ({ item, setModa
   const isAuthor = (item as Author).name !== undefined;
 
   if (item) {
-  
     const handleClick = () => {
       navigate(-1);
     };
   
     const handleToggleClick = (label: string) => {
-      if (!item || isAuthor) return;
-  
-      switch (label) {
-        case "favorite":
-          if (isBookFavorite(state, item as Book)) {
-            dispatch({ type: "DELETE_BOOK", payload: { book: item as Book, type: 'favoriteBooks' } });
+      if (isAuthor) {
+        if (label === 'favorite') {
+          if(isItemFavorite(state, item)) {
+            dispatch({ type: 'DELETE_ITEM', payload: { item: item, type: 'favoriteAuthors'}})
           } else {
-            dispatch({ type: "SAVE_BOOK", payload: { book: item as Book, type: 'favoriteBooks' } });
+            dispatch({ type: 'SAVE_ITEM', payload: {item: item, type: 'favoriteAuthors'}})
           }
-          break;
-        case "read":
-          if (isBookRead(state, item as Book)) {
-            dispatch({ type: "DELETE_BOOK", payload: { book: item as Book, type: 'readBooks' } });
-            dispatch({ type: "DELETE_REVIEW", payload: item as Book });
-          } else {
-            dispatch({ type: "SAVE_BOOK", payload: { book: item as Book, type: 'readBooks' }});
-            setModal(true)
-          }
+        }
       }
+      else {
+        switch (label) {
+          case "favorite":
+            if (isItemFavorite(state, item)) {
+              dispatch({ type: "DELETE_ITEM", payload: { item: item, type: 'favoriteBooks' } });
+            } else {
+              dispatch({ type: "SAVE_ITEM", payload: { item: item, type: 'favoriteBooks' } });
+            }
+            break;
+          case "read":
+            if (isBookRead(state, item as Book)) {
+              dispatch({ type: "DELETE_ITEM", payload: { item: item, type: 'readBooks' } });
+              dispatch({ type: "DELETE_ITEM", payload: {item: item, type: 'reviews'} });
+            } else {
+              dispatch({ type: "SAVE_ITEM", payload: { item: item, type: 'readBooks' }});
+              setModal(true)
+            }
+        }
+      }
+  
     };
   
     return (
@@ -51,19 +60,19 @@ const RenderToggleButtons: React.FC<RenderToggleButtonsProps> = ({ item, setModa
           onClick={handleClick}
           label="Close"
         />
-        <Button
+        {!isAuthor && <Button
           className={"button toggle"}
           onClick={() => handleToggleClick("read")}
           label="Read"
           toggleAble={true}
           checkRead={() => isBookRead(state, item as Book)}
-        />
+        />}
         <Button
           className={"button toggle"}
           onClick={() => handleToggleClick("favorite")}
           label="Favorite"
           toggleAble={true}
-          checkFavorite={() => isBookFavorite(state, item as Book)}
+          checkFavorite={() => isItemFavorite(state, item)}
         />
       </div>
     );

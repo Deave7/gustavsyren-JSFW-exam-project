@@ -34,7 +34,7 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
       return;
     }
   
-    dispatch({ type: "SAVE_REVIEW", payload: formData });
+    dispatch({ type: "SAVE_ITEM", payload:{ item: formData, type: 'reviews'} });
     onClose();
   };
 

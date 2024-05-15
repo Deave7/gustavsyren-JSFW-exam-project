@@ -4,45 +4,27 @@ const globalReducer = (state: globalState, action: Action): globalState => {
   switch (action.type) {
     case "SAVE_SEARCH":
       return { ...state, docs: action.payload };
-    case "SAVE_BOOK": {
-      const {book, type} = action.payload;
+    case "SAVE_ITEM": {
+      const { item, type: itemType} = action.payload;
       const updatedUser: User = {
         ...state.user,
-        [type]: [...state.user[type], book],
+        [itemType]: [...state.user[itemType], item],
+        
       };
-      return { ...state, user: updatedUser };
+      return { ...state, user: updatedUser};
     }
-    case "DELETE_BOOK": {
-      const { type } = action.payload
+    case "DELETE_ITEM": {
+      const { type: ItemType } = action.payload
       return {
         ...state,
         user: {
           ...state.user,
-          [type]: state.user[type].filter(
-            (book) => book.title !== action.payload.book.title
+          [ItemType]: state.user[ItemType].filter(
+            (item) => item._version_ !== action.payload.item._version_
           ),
         },
       };
     }
-    case "SAVE_REVIEW":
-      return {
-        ...state,
-        user: {
-          ...state.user,
-          reviews: [...state.user.reviews, action.payload],
-        },
-      };
-    case "DELETE_REVIEW":
-      return {
-        ...state,
-        user: {
-          ...state.user,
-          reviews: state.user.reviews.filter(
-            (review) => review._version_ !== action.payload._version_
-          ),
-        },
-      };
-
     case "RESET":
       return {
         docs: [],
@@ -50,6 +32,7 @@ const globalReducer = (state: globalState, action: Action): globalState => {
           favoriteBooks: [],
           readBooks: [],
           reviews: [],
+          favoriteAuthors: [],
         },
       };
 

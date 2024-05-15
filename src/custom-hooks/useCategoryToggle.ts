@@ -1,4 +1,4 @@
-import { useState } from "react"
+import {  useState } from "react"
 
 const useCategoryToggle = (categoryOne: string, categoryTwo: string) => {
     const [category, setCategory] = useState(categoryOne)
