@@ -84,7 +84,7 @@ export type ModalProps = {
 export type BookType = 'favoriteBooks' | 'readBooks';
 
 export type Action =
-  | { type: "SAVE_SEARCH"; payload: Book[] }
+  | { type: "SAVE_SEARCH"; payload: Book[] | Author[] }
   | { type: "SAVE_BOOK"; payload: { book: Book, type: BookType }}
   | { type: "DELETE_BOOK"; payload: { book: Book, type: BookType }}
   | { type: "SAVE_REVIEW"; payload: Review }
