@@ -1,12 +1,14 @@
-function renderDescription(itemData: any) {
+import { itemDetails } from "../types/types";
+
+function renderDescription(itemDetails: itemDetails) {
   return (
     <p>
-      {itemData &&
-      typeof itemData.description === "object" &&
-      itemData.description
-        ? itemData.description.value
-        : itemData && typeof itemData.description === "string"
-        ? itemData.description
+      {itemDetails &&
+      typeof itemDetails.description === "object" &&
+      itemDetails.description
+        ? itemDetails.description.value
+        : itemDetails && typeof itemDetails.description === "string"
+        ? itemDetails.description
         : "No description available"}
     </p>
   );

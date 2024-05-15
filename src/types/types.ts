@@ -96,3 +96,13 @@ export type GlobalProviderProps = {
 };
 
 export type CheckFunction = () => boolean;
+
+export type itemDetails = {
+  subjects?: string[]
+  death_date?: string
+  birth_date?: string
+  desctiption?: string | {
+    value: string;
+  }
+  
+}

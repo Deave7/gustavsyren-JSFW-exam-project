@@ -63,7 +63,7 @@ const Shelf = () => {
         <div className="info-container">
           <div className="image-details-container">
             <div className="image-container">
-              {renderImage(item, data)}
+              {renderImage(item!, data)}
             </div>
             <div className="details-container">
               {renderDetails(item!, data)}

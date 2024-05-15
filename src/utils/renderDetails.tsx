@@ -1,6 +1,6 @@
-import { Author, Book } from "../types/types";
+import { Author, Book, itemDetails } from "../types/types";
 
-function renderDetails(item: Book | Author, itemDetails: any ) {
+function renderDetails(item: Book | Author, itemDetails: itemDetails ) {
   if ('author_name' in item) {
     const book = item as Book
       return (
@@ -19,14 +19,15 @@ function renderDetails(item: Book | Author, itemDetails: any ) {
         </li>
         <li>
           <span>Subject:</span>{" "}
-          {itemDetails ? itemDetails.subjects[0] : "No subject available"}
+          {itemDetails.subjects  ? itemDetails.subjects[0] : "No subject available"}
         </li>
       </ul>
     );
   }
   else {
     const author = item as Author
-    return (
+    if (itemDetails) {
+      return (
         <ul>
         <li>
           <span>Name:</span> {author.name}
@@ -34,8 +35,17 @@ function renderDetails(item: Book | Author, itemDetails: any ) {
         <li>
           <span>Top Work:</span> {author.top_work}
         </li>
+          <li>
+            <span>Born:</span> {itemDetails.birth_date ? itemDetails.birth_date : 'Not avaliable'}
+          </li>
+       
+          <li>
+            <span>Died:</span> {itemDetails.death_date ? itemDetails.death_date: 'Not avaliable'}
+          </li>
+        
       </ul>
-    )
+      )
+    }
   }
 }
 
