@@ -81,12 +81,12 @@ export type ModalProps = {
   onClose: () => void;
 };
 
+export type BookType = 'favoriteBooks' | 'readBooks';
+
 export type Action =
   | { type: "SAVE_SEARCH"; payload: Book[] }
-  | { type: "SAVE_FAVORITE"; payload: Book }
-  | { type: "SAVE_READ"; payload: Book }
-  | { type: "DELETE_FAVORITE"; payload: Book }
-  | { type: "DELETE_READ"; payload: Book }
+  | { type: "SAVE_BOOK"; payload: { book: Book, type: BookType }}
+  | { type: "DELETE_BOOK"; payload: { book: Book, type: BookType }}
   | { type: "SAVE_REVIEW"; payload: Review }
   | { type: "DELETE_REVIEW"; payload: Book }
   | { type: "RESET"; }

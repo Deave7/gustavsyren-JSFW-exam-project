@@ -28,18 +28,17 @@ const Shelf = () => {
     switch (label) {
       case "favorite":
         if (isBookFavorite(state, book!)) {
-          dispatch({ type: "DELETE_FAVORITE", payload: book! });
+          dispatch({ type: "DELETE_BOOK", payload: {book: book!, type: 'favoriteBooks'} });
         } else {
-          dispatch({ type: "SAVE_FAVORITE", payload: book! });
+          dispatch({ type: "SAVE_BOOK", payload: {book: book!, type: 'favoriteBooks'}});
         }
         break;
-
       case "read":
         if (isBookRead(state, book!)) {
-          dispatch({ type: "DELETE_READ", payload: book! });
-          dispatch({ type: "DELETE_REVIEW", payload: book! });
+          dispatch({ type: "DELETE_BOOK", payload: {book: book!, type: 'readBooks' }});
+          dispatch({ type: "DELETE_REVIEW", payload: book!});
         } else {
-          dispatch({ type: "SAVE_READ", payload: book! });
+          dispatch({ type: "SAVE_BOOK", payload:{ book: book!, type: 'readBooks'} });
           setModal(true);
         }
     }
