@@ -3,18 +3,28 @@ import { GlobalContext } from "../../components/context/GlobalContext";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../../custom-hooks/useFetch";
 import Button from "../../components/button/Button";
-import findBook from "../../utils/findBook";
 import isBookRead from "../../utils/isBookRead";
 import isBookFavorite from "../../utils/isBookFavorite";
 import Modal from "../../components/modal/Modal";
 import useVersion from "../../custom-hooks/useVersion";
+import renderDetails from "../../utils/renderDetails";
+import renderDescription from "../../utils/renderDescription";
+import findItem from "../../utils/findItem";
+import { Book, Author } from "../../types/types";
+import renderImage from "../../utils/renderImage";
 
 const Shelf = () => {
   const { state, dispatch } = useContext(GlobalContext);
   const [modal, setModal] = useState(false);
   const parsedVersion = useVersion();
-  const book = findBook(state, parsedVersion);
+  const item = findItem(state, parsedVersion);
   const navigate = useNavigate();
+  const isAuthor = (item as Author).name !== undefined;
+  const endpoint = "https://openlibrary.org";
+  const query = isAuthor ? `/authors/${item!.key}` : `${item!.key}`;
+  const options = ".json";
+
+  const { data } = useFetch(query, endpoint, options);
 
   const handleClose = () => {
     setModal(false);
@@ -25,31 +35,27 @@ const Shelf = () => {
   };
 
   const handleToggleClick = (label: string) => {
+    if (!item || isAuthor) return
+
     switch (label) {
       case "favorite":
-        if (isBookFavorite(state, book!)) {
-          dispatch({ type: "DELETE_BOOK", payload: {book: book!, type: 'favoriteBooks'} });
+        if (isBookFavorite(state, item as Book)) {
+          dispatch({ type: "DELETE_BOOK", payload: {book: item as Book, type: 'favoriteBooks'} });
         } else {
-          dispatch({ type: "SAVE_BOOK", payload: {book: book!, type: 'favoriteBooks'}});
+          dispatch({ type: "SAVE_BOOK", payload: {book: item as Book, type: 'favoriteBooks'}});
         }
         break;
       case "read":
-        if (isBookRead(state, book!)) {
-          dispatch({ type: "DELETE_BOOK", payload: {book: book!, type: 'readBooks' }});
-          dispatch({ type: "DELETE_REVIEW", payload: book!});
+        if (isBookRead(state, item as Book)) {
+          dispatch({ type: "DELETE_BOOK", payload: {book: item as Book, type: 'readBooks' }});
+          dispatch({ type: "DELETE_REVIEW", payload: item as Book});
         } else {
-          dispatch({ type: "SAVE_BOOK", payload:{ book: book!, type: 'readBooks'} });
+          dispatch({ type: "SAVE_BOOK", payload:{ book: item as Book, type: 'readBooks'} });
           setModal(true);
         }
     }
   };
 
-  const { data } = useFetch(book!.key, "https://openlibrary.org", ".json");
-
-  const bookData = data as unknown as {
-    subjects: string[];
-    description: string | { type: string; value: string };
-  };
 
   return (
     <div className="shelf">
@@ -57,47 +63,16 @@ const Shelf = () => {
         <div className="info-container">
           <div className="image-details-container">
             <div className="image-container">
-              <img
-                src={`https://covers.openlibrary.org/b/id/${
-                  book!.cover_i
-                }-M.jpg`}
-                alt="cover art"
-                height={160}
-              />
+              {renderImage(item, data)}
             </div>
             <div className="details-container">
-              <ul>
-                <li>
-                  <span>Title:</span> {book!.title}
-                </li>
-                <li>
-                  <span>Author:</span> {book!.author_name[0]}
-                </li>
-                <li>
-                  <span>Release:</span> {book!.first_publish_year}
-                </li>
-                <li>
-                  <span>Publisher:</span> {book!.publisher[0]}
-                </li>
-                <li>
-                  <span>Subject:</span>{" "}
-                  {bookData ? bookData.subjects[0] : "No subject available"}
-                </li>
-              </ul>
+              {renderDetails(item!, data)}
             </div>
           </div>
           <div className="description-container">
             <div>
               <h2>Description: </h2>
-              <p>
-                {bookData &&
-                typeof bookData.description === "object" &&
-                bookData.description
-                  ? bookData.description.value
-                  : bookData && typeof bookData.description === "string"
-                  ? bookData.description
-                  : "No description available"}
-              </p>
+                {renderDescription(data)}
             </div>
           </div>
           <div className="button-container">
@@ -111,14 +86,14 @@ const Shelf = () => {
               onClick={() => handleToggleClick("read")}
               label="Read"
               toggleAble={true}
-              checkRead={() => isBookRead(state, book!)}
+              checkRead={() => isBookRead(state, item as Book)}
             />
             <Button
               className={"button toggle"}
               onClick={() => handleToggleClick("favorite")}
               label="Favorite"
               toggleAble={true}
-              checkFavorite={() => isBookFavorite(state, book!)}
+              checkFavorite={() => isBookFavorite(state, item as Book)}
             />
           </div>
         </div>

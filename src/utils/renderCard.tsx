@@ -17,7 +17,7 @@ function renderCard(item: Book | Author, index: number) {
     else {
         const author = item as Author
         return (
-            <Link to={`/shelf/${author._version}`} key={index}>
+            <Link to={`/shelf/${author._version_}`} key={index}>
                 <Card 
                     itemName={author.name} 
                     authorOrTopWork={author.top_work} 

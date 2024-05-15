@@ -1,10 +1,11 @@
-import { Book, globalState } from "../types/types";
+import { Author, Book, globalState } from "../types/types";
 
-function findBook(state: globalState, parsedVersion: number): Book | undefined {
-  const bookInDocs = state.docs.find(
-    (book: Book) => book._version_ === parsedVersion
+function findItem(state: globalState, parsedVersion: number): Book | Author | undefined {
+  
+  const itemInDocs = state.docs.find(
+    (item: Book | Author) => item._version_ === parsedVersion
   );
-  if (bookInDocs) return bookInDocs;
+  if (itemInDocs) return itemInDocs;
 
   const bookInFavorites = state.user.favoriteBooks.find(
     (book: Book) => book._version_ === parsedVersion
@@ -19,4 +20,4 @@ function findBook(state: globalState, parsedVersion: number): Book | undefined {
   return undefined;
 }
 
-export default findBook;
+export default findItem

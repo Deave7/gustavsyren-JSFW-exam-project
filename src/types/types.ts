@@ -37,7 +37,7 @@ export type Author = {
   name: string
   top_work: string
   key: string
-  _version: number;
+  _version_: number;
 }
 
 export type User = {
@@ -47,7 +47,7 @@ export type User = {
 };
 
 export type globalState = {
-  docs: Book[];
+  docs: (Book | Author)[];
   user: User;
 };
 
