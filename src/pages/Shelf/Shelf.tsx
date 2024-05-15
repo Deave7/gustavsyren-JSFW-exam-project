@@ -63,16 +63,16 @@ const Shelf = () => {
         <div className="info-container">
           <div className="image-details-container">
             <div className="image-container">
-              {renderImage(item!, data)}
+              {renderImage(item!, data!)}
             </div>
             <div className="details-container">
-              {renderDetails(item!, data)}
+              {renderDetails(item!, data!)}
             </div>
           </div>
           <div className="description-container">
             <div>
               <h2>Description: </h2>
-                {renderDescription(data)}
+                {renderDescription(item!, data!)}
             </div>
           </div>
           <div className="button-container">

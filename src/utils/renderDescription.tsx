@@ -1,17 +1,24 @@
-import { itemDetails } from "../types/types";
+import { Author, Book, itemDetails } from "../types/types";
 
-function renderDescription(itemDetails: itemDetails) {
-  return (
-    <p>
-      {itemDetails &&
-      typeof itemDetails.description === "object" &&
-      itemDetails.description
-        ? itemDetails.description.value
-        : itemDetails && typeof itemDetails.description === "string"
-        ? itemDetails.description
-        : "No description available"}
-    </p>
-  );
+function renderDescription(item: Book | Author, itemDetails: itemDetails) {
+  if (itemDetails) {
+    if ('author_name' in item) {
+      const description = typeof itemDetails.description === 'string' ? itemDetails.description : itemDetails.description?.value;
+      return (
+        <p>
+          {description ? description : 'Not available'}
+        </p>
+      );
+    }
+    else {
+      const bio = typeof itemDetails.bio === 'string' ? itemDetails.bio : itemDetails.bio?.value;
+      return (
+        <p>
+          {bio ? bio : 'Not avaliable'}
+        </p>
+      )
+    }
+  }
 }
 
 export default renderDescription;

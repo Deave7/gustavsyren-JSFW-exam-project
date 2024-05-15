@@ -1,7 +1,7 @@
-import { Author, Book } from "../types/types";
+import { Author, Book, itemDetails } from "../types/types";
 import placeholderImage from '/avatar_author-lg.png'
 
-function renderImage(item: Book | Author, data: any) {
+function renderImage(item: Book | Author, itemDetails: itemDetails) {
   if ("author_name" in item) {
     const book = item as Book;
     return (
@@ -12,10 +12,10 @@ function renderImage(item: Book | Author, data: any) {
       />
     );
   } else {
-    if (data && data.photos && data.photos.length > 0) {
+    if (itemDetails && itemDetails.photos && itemDetails.photos.length > 0) {
       return (
         <img
-          src={`https://covers.openlibrary.org/a/id/${data.photos[0]}-M.jpg`}
+          src={`https://covers.openlibrary.org/a/id/${itemDetails.photos[0]}-M.jpg`}
           alt="cover art"
           height={160}
         />

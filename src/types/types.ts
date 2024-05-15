@@ -101,8 +101,12 @@ export type itemDetails = {
   subjects?: string[]
   death_date?: string
   birth_date?: string
-  desctiption?: string | {
+  description?: string | {
     value: string;
   }
+  bio?: string | {
+    value: string
+  }
+  photos: string[]
   
 }
