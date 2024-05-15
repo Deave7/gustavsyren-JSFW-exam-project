@@ -1,6 +1,6 @@
 import {  useState } from "react"
 
-const useCategoryToggle = (categoryOne: string, categoryTwo: string) => {
+const useCategoryToggle = (categoryOne: string, categoryTwo: string, categoryThree?: string) => {
     const [category, setCategory] = useState(categoryOne)
 
     const handleCategoryOneClick = () => {
@@ -8,10 +8,15 @@ const useCategoryToggle = (categoryOne: string, categoryTwo: string) => {
     }
 
     const handleCategoryTwoClick = () => {
-        setCategory(categoryOne)
+        setCategory(categoryThree ? categoryThree : categoryOne);
+    };
+
+
+    const handleCategoryThreeClick = () => {
+            setCategory(categoryOne)
     }
 
-    return { category, handleCategoryOneClick, handleCategoryTwoClick}
+    return { category, handleCategoryOneClick, handleCategoryTwoClick, handleCategoryThreeClick}
 }
 
 export default useCategoryToggle

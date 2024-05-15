@@ -21,15 +21,21 @@ const CardList: React.FC<CardListProps> = ({ label, height, width, loading }) =>
             renderCard(item, index)
           ))}
         {location.pathname === "/user" &&
-          label === "Favorites" &&
+          label === "Favorite Books:" &&
           state.user.favoriteBooks.map((book, index) => (
             renderCard(book, index)
           ))}
         {location.pathname === "/user" &&
-          label === "Read" &&
+          label === "Read Books:" &&
           state.user.readBooks.map((book, index) => (
             renderCard(book, index)
           ))}
+        {location.pathname === "/user" &&
+          label === "Favorite Authors:" &&
+          state.user.favoriteAuthors.map((author, index) => (
+            renderCard(author, index)
+          ))}
+      
       </div>}
     </div>
   );

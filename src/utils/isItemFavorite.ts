@@ -1,7 +1,10 @@
 import { globalState, Book, Author } from "../types/types";
 
-
 const isItemFavorite = (state: globalState, item: Book | Author): boolean => {
+  if (!item) {
+    return false;
+  }
+
   if ("author_name" in item) {
     return state.user.favoriteBooks.some(
       (favoriteItem) => favoriteItem._version_ === item._version_

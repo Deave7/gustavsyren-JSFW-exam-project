@@ -6,8 +6,13 @@ import useCategoryToggle from "../../custom-hooks/useCategoryToggle";
 
 const User = () => {
   const { state } = useContext(GlobalContext);
-  const { category, handleCategoryOneClick, handleCategoryTwoClick } = useCategoryToggle('favorites', 'read')
- 
+  const {
+    category,
+    handleCategoryOneClick,
+    handleCategoryTwoClick,
+    handleCategoryThreeClick,
+  } = useCategoryToggle("favorite-books", "read-books", "favorite-authors");
+
   const totalPagesRead = state.user.reviews.reduce((total, review) => {
     return total + parseInt(review.numPageValue);
   }, 0);
@@ -24,7 +29,7 @@ const User = () => {
               <span>Books read:</span> <br /> {state.user.readBooks.length}
             </li>
             <li>
-              <span>Number of favorites:</span> <br />{" "}
+              <span>Number of favorite books:</span> <br />{" "}
               {state.user.favoriteBooks.length}
             </li>
             <li>
@@ -34,22 +39,38 @@ const User = () => {
         </div>
       </div>
       <div className="button-container">
-        {category === "read" ? (
-          <Button
-            className={"button user-b"}
-            onClick={handleCategoryTwoClick}
-            label="Toggle Category"
-          ></Button>
-        ) : (
+        {category === "favorite-books" && (
           <Button
             className={"button user-b"}
             onClick={handleCategoryOneClick}
             label="Toggle Category"
           ></Button>
         )}
+        {category === "read-books" && (
+          <Button
+            className={"button user-b"}
+            onClick={handleCategoryTwoClick}
+            label="Toggle Category"
+          ></Button>
+        )}{" "}
+        {category === "favorite-authors" && (
+          <Button
+            className={"button user-b"}
+            onClick={handleCategoryThreeClick}
+            label="Toggle Category"
+          ></Button>
+        )}
       </div>
       <CardList
-        label={category === "favorites" ? "Favorites" : "Read"}
+        label={
+          category === "favorite-books"
+            ? "Favorite Books:"
+            : category === "read-books"
+            ? "Read Books:"
+            : category === "favorite-authors"
+            ? "Favorite Authors:"
+            : ""
+        }
         height={"50rem"}
         width={"40rem"}
       />
