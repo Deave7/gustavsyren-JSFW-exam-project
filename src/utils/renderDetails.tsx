@@ -3,26 +3,28 @@ import { Author, Book, itemDetails } from "../types/types";
 function renderDetails(item: Book | Author, itemDetails: itemDetails ) {
   if ('author_name' in item) {
     const book = item as Book
-      return (
-      <ul>
-        <li>
-          <span>Title:</span> {book.title}
-        </li>
-        <li>
-          <span>Author:</span> {book.author_name[0]}
-        </li>
-        <li>
-          <span>Release:</span> {book.first_publish_year}
-        </li>
-        <li>
-          <span>Publisher:</span> {book.publisher[0]}
-        </li>
-        <li>
-          <span>Subject:</span>{" "}
-          {itemDetails.subjects  ? itemDetails.subjects[0] : "No subject available"}
-        </li>
-      </ul>
-    );
+      if (itemDetails) {
+        return (
+          <ul>
+            <li>
+              <span>Title:</span> {book.title}
+            </li>
+            <li>
+              <span>Author:</span> {book.author_name[0]}
+            </li>
+            <li>
+              <span>Release:</span> {book.first_publish_year}
+            </li>
+            <li>
+              <span>Publisher:</span> {book.publisher[0]}
+            </li>
+            <li>
+              <span>Subject:</span>{" "}
+              {itemDetails.subjects  ? itemDetails.subjects[0] : "No subject available"}
+            </li>
+          </ul>
+        );
+      }
   }
   else {
     const author = item as Author
