@@ -7,6 +7,7 @@ export const initialGlobalState: globalState = {
     favoriteBooks: [],
     readBooks: [],
     reviews: [],
+    favoriteAuthors: []
   },
 };
 
