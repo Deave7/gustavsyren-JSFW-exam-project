@@ -3,9 +3,9 @@ import Button from "../../components/button/Button";
 import CardList from "../../components/cardList/CardList";
 import { GlobalContext } from "../../components/context/GlobalContext";
 import useCategoryToggle from "../../custom-hooks/useCategoryToggle";
-import calculateAvrageScore from "../../utils/calculateAvrageScore";
-import calculateAvragePages from "../../utils/calculateAvragePages";
+
 import calculatePagesRead from "../../utils/calculatePagesRead";
+import calculateAverage from "../../utils/calculateAvrageScore";
 
 const User = () => {
   const { state } = useContext(GlobalContext);
@@ -38,10 +38,10 @@ const User = () => {
           </ul>
           <ul>
             <li>
-              <span>Avrage review score:</span> <br/> {calculateAvrageScore(state.user.reviews)}
+              <span>Avrage review score:</span> <br/> {calculateAverage(state.user.reviews, 'scoreValue' )}
             </li>
             <li>
-              <span>Avrage number of pages:</span> <br/> {calculateAvragePages(state.user.reviews)}
+              <span>Avrage number of pages:</span> <br/> {calculateAverage(state.user.reviews, 'numPageValue')}
             </li>
             <li>
               <span>Number of favorite authors:</span> <br/> {state.user.favoriteAuthors.length}
