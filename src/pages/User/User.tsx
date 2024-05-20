@@ -3,9 +3,9 @@ import Button from "../../components/button/Button";
 import CardList from "../../components/cardList/CardList";
 import { GlobalContext } from "../../components/context/GlobalContext";
 import useCategoryToggle from "../../custom-hooks/useCategoryToggle";
-
 import calculatePagesRead from "../../utils/calculatePagesRead";
-import calculateAverage from "../../utils/calculateAvrageScore";
+import calculateAverage from "../../utils/calculateAverage";
+
 
 const User = () => {
   const { state } = useContext(GlobalContext);
