@@ -16,10 +16,10 @@
     @include mix.sizeSettings($width: 40rem, $height: 25rem);
     padding-top: 1rem;
     background-color: colors.$primary-container;
-    gap: 1rem;
+    gap: 0.5rem;
 
     .list-container {
-      @include mix.flexBox($direction: column, $align: center);
+      @include mix.flexBox($direction: row, $align: center);
       width: 35rem;
       background-color: colors.$secondary;
       color: #ffffff;
@@ -28,13 +28,13 @@
       ul {
         list-style: none;
         padding: 1rem;
-        @include mix.fontSettings($size: 1.5rem, $weight: 500);
 
         li {
-          @include mix.fontSettings($size: 2rem, $weight: 300);
+          @include mix.fontSettings($size: 1.5rem, $weight: 300);
           text-align: center;
+          min-height: 5rem;
           span {
-            @include mix.fontSettings($size: 2rem, $weight: 500);
+            @include mix.fontSettings($size: 1.5rem, $weight: 500);
           }
         }
       }

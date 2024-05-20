@@ -15,7 +15,7 @@ const Shelf = () => {
   const [modal, setModal] = useState(false);
   const parsedVersion = useVersion();
   const item = findItem(state, parsedVersion);
-  const isAuthor = (item as Author).name !== undefined;
+  const isAuthor = item && (item as Author).name !== undefined;
   const endpoint = "https://openlibrary.org";
   const query = isAuthor ? `/authors/${item!.key}` : `${item!.key}`;
   const options = ".json";

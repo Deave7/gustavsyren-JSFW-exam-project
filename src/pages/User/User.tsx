@@ -3,6 +3,9 @@ import Button from "../../components/button/Button";
 import CardList from "../../components/cardList/CardList";
 import { GlobalContext } from "../../components/context/GlobalContext";
 import useCategoryToggle from "../../custom-hooks/useCategoryToggle";
+import calculateAvrageScore from "../../utils/calculateAvrageScore";
+import calculateAvragePages from "../../utils/calculateAvragePages";
+import calculatePagesRead from "../../utils/calculatePagesRead";
 
 const User = () => {
   const { state } = useContext(GlobalContext);
@@ -13,9 +16,6 @@ const User = () => {
     handleCategoryThreeClick,
   } = useCategoryToggle("favorite-books", "read-books", "favorite-authors");
 
-  const totalPagesRead = state.user.reviews.reduce((total, review) => {
-    return total + parseInt(review.numPageValue);
-  }, 0);
 
   return (
     <div className="user">
@@ -24,7 +24,7 @@ const User = () => {
           <h2>User statistics:</h2>
         </div>
         <div className="list-container">
-          <ul>
+          <ul className="left-list">
             <li>
               <span>Books read:</span> <br /> {state.user.readBooks.length}
             </li>
@@ -33,7 +33,18 @@ const User = () => {
               {state.user.favoriteBooks.length}
             </li>
             <li>
-              <span>Pages read:</span> <br /> {totalPagesRead}
+              <span>Pages read:</span> <br /> {calculatePagesRead(state.user.reviews)}
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <span>Avrage review score:</span> <br/> {calculateAvrageScore(state.user.reviews)}
+            </li>
+            <li>
+              <span>Avrage number of pages:</span> <br/> {calculateAvragePages(state.user.reviews)}
+            </li>
+            <li>
+              <span>Number of favorite authors:</span> <br/> {state.user.favoriteAuthors.length}
             </li>
           </ul>
         </div>
