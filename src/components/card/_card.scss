@@ -5,6 +5,7 @@
   @include mix.flexBox($align: center, $justify: center);
   @include mix.sizeSettings($width: 36rem, $height: 10rem);
   @include mix.fontSettings($size: 1.3rem, $weight: 500);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: #ffffff;
   gap: 2rem;
   margin-bottom: 1rem;
